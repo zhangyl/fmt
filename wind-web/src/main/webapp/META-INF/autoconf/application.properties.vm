@@ -1,0 +1,20 @@
+dubbo.application.name=wind
+zookeeper.address=${zookeeper.address}
+dubbo.port=${dubbo.port}
+dubbo.service.version=${dubbo.service.version}
+dubbo.consumer.version=${dubbo.consumer.version}
+
+#redis host
+redis.host =${redis_host}
+#redis port
+redis.port = ${redis_port}
+#redis auth
+redis.auth =${redis_auth}
+
+valid.sign.test.ip.switch =${valid_sign_test_ip_switch}
+
+tqmall.search.host =${tqmall_search_host}
+wind.search.host =${wind_search_host}
+
+debug=${debug}
+testers=${testers}

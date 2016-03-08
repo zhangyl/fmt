@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+           http://code.alibabatech.com/schema/dubbo
+           http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+        >
+    <dubbo:provider timeout="60000"/>
+    <!-- 声明需要暴露的服务接口 -->
+
+    <dubbo:service interface="com.tqmall.wind.service.TireOrderInfoService"
+                   ref="tireOrderInfoService" version="${dubbo.service.version}"/>
+
+    <dubbo:service interface="com.tqmall.wind.service.TireGoodsService"
+                   ref="tireGoodsService" version="${dubbo.service.version}"/>
+    <dubbo:service interface="com.tqmall.wind.service.TireReleaseService"
+                   ref="tireReleaseService" version="${dubbo.service.version}"/>
+
+
+    <!-- 和本地bean一样实现服务 -->
+    <bean id="tireOrderInfoService"
+          class="com.tqmall.wind.service.TireOrderInfoServiceImpl"/>
+
+    <bean id="tireGoodsService"
+          class="com.tqmall.wind.service.TireGoodsServiceImpl"/>
+    <bean id="tireReleaseService"
+          class="com.tqmall.wind.service.TireReleaseServiceImpl"/>
+
+</beans>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config description="">
+    <group name="default">
+
+        <property name="zookeeper.address"
+                  defaultValue="115.29.220.170:2181"
+                  description="zookeeper注册中心地址"/>
+        <property name="dubbo.port"
+                  defaultValue="20880"
+                  description="dubbo暴露服务端口"/>
+        <property name="dubbo.service.version"
+                  defaultValue="1.0.0"
+                  description="dubbo服务接口默认版本"/>
+        <property name="dubbo.consumer.version"
+                  defaultValue="1.0.0"
+                  description="dubbo服务调用者接口默认版本"/>
+
+        <property name="redis.host"
+                  defaultValue="121.199.28.244"
+                  description="redis端口"/>
+
+        <property name="redis.port"
+                  defaultValue="6379"
+                  description="redis port"/>
+
+        <property name="redis.auth"
+                  defaultValue="xZ7ScgiMV1Acv3h4"
+                  description="redis auth密码"/>
+
+        <property name="valid.sign.test.ip.switch"
+                  defaultValue="on"
+                  description="测试白名单签名过滤是否启用，on：启用"/>
+
+        <property name="shop.log.root" defaultValue="/data/wind/logs"
+                  description="log文件目录"/>
+        <property name="shop.log.level" defaultValue="INFO"
+                  description="log级别"/>
+        <property name="shop.log.pattern"
+                  defaultValue="[%d{'MM-dd HH:mm:ss,SSS',GMT+8:00}] %-5p [%.10t][%X{CU}] %logger{36}[%L] - %m%n"
+                  description="log格式"/>
+        <property name="shop.log.charset" defaultValue="UTF-8"
+                  description="log文件编码类型"/>
+
+        <property name="tqmall.search.host"
+                  defaultValue="http://112.124.11.106:8080/elasticsearch"
+                  description="商品搜索服务路径"/>
+        <property name="wind.search.host"
+                  defaultValue="http://112.124.11.106:8081/elasticsearch"
+                  description="wind甩卖单搜索服务路径"/>
+                  
+        <property name="debug" defaultValue="false"
+                  description="是否开启debug"/>         
+        <property name="testers" defaultValue="10095,10097"
+                  description="测试帐号，无需进金蝶的帐号"/>         
+    </group>
+
+    <script>
+        <generate template="application.properties.vm"
+                  destfile="WEB-INF/classes/application.properties"
+                  charset="UTF-8"/>
+        <generate template="logback.xml.vm"
+                  destfile="WEB-INF/classes/logback.xml"
+                  charset="UTF-8"/>
+    </script>
+</config>

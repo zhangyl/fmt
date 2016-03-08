@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd 
+       		http://www.springframework.org/schema/aop 
+       		http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+
+
+<!--     <aop:config proxy-target-class="false">
+        <aop:pointcut id="resultControlWrapper" 
+                      expression="@annotation(org.springframework.web.bind.annotation.ResponseBody) and execution(com.tqmall.core.common.entity.Result *.*(..))"/>
+        <aop:advisor advice-ref="resultServiceWrapper" pointcut-ref="resultControlWrapper" order="10"/>
+	</aop:config>
+	
+	<aop:config proxy-target-class="false"> 
+        <aop:pointcut id="pagingResultControlWrapper"
+                      expression="@annotation(org.springframework.web.bind.annotation.ResponseBody) and execution(com.tqmall.core.common.entity.PagingResult *.*(..))"/>
+        <aop:advisor advice-ref="pagingResultServiceWrapper" pointcut-ref="pagingResultControlWrapper" order="20"/>
+	</aop:config>
+	
+	<aop:config proxy-target-class="false"> 
+        <aop:pointcut id="dubboServiceWrapper"
+                      expression="execution(* com.tqmall.wind.service..*.*(..))"/>
+        <aop:advisor advice-ref="dubboServiceInterceptor" pointcut-ref="dubboServiceWrapper" order="30"/>    
+	</aop:config>
+	
+	<aop:config proxy-target-class="false">                      
+        <aop:pointcut id="httpAuthWrapper"
+                      expression="@annotation(com.tqmall.wind.domain.annotation.HttpAuthAop) and execution(* com.tqmall.wind.controller..*.*(..))"/>
+        <aop:advisor advice-ref="httpAuthInterceptor" pointcut-ref="httpAuthWrapper"  order="40"/>
+    </aop:config> -->
+
+</beans>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tqmall.wind.mapper.autoparts.TireReleaseMapper">
+    <!--实体映射-->
+    <resultMap id="BaseResultMap" type="com.tqmall.wind.model.TireReleaseDO">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="age" property="age" jdbcType="INTEGER"/>
+    </resultMap>
+
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+		 id,name,age
+	</sql>
+
+    <!-- 动态条件 -->
+    <sql id="BaseCondition">
+        <where>
+            <if test="name != null">
+                AND name=#{name}
+            </if>
+            <if test="age != null">
+                AND age=#{age}
+            </if>
+        </where>
+    </sql>
+
+    <!-- 查询（根据主键ID查询） -->
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM student
+        WHERE id = #{id,jdbcType=INTEGER }
+    </select>
+	<!-- flushCache="true" -->
+    <select id="selectByAge" 
+    	resultMap="BaseResultMap" 
+    	parameterType="com.tqmall.wind.model.TireReleaseDO">
+    	
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM student
+        <include refid="BaseCondition"/>
+    </select>
+    <!-- 添加 （匹配有值的字段）-->
+    <insert id="insertSelective" parameterType="com.tqmall.wind.model.TireReleaseDO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                name,
+            </if>
+            <if test="age != null">
+                age,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name!=null">
+                #{name},
+            </if>
+            <if test="age!=null">
+                #{age},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 修 改-->
+    <update id="updateByPrimaryKeySelective" parameterType="com.tqmall.wind.model.TireReleaseDO">
+        UPDATE student
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="age != null">
+                age = #{tireGoodsId},
+            </if>
+        </set>
+        WHERE id = #{id,jdbcType=INTEGER }
+    </update>
+
+</mapper>
