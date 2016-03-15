@@ -34,7 +34,7 @@ public class TireReleaseDao {
     	return tireReleaseMapper.selectByPrimaryKey(id);
     }
     
-    @Transactional
+    
     public Integer transaction(TireReleaseDO record) {
         Integer o = tireReleaseMapper.insertSelective(record);
         if(o == null) {

@@ -50,8 +50,8 @@ public class TireReleaseManager {
 			}
 			log.info(name + " 开始同步块内插入sqltime=" + System.currentTimeMillis());
 			tireReleaseDao.insert(record);
-			record.setName("currentTimeMilliscurrentTimeMilliscurrentTimeMilliscurrentTimeMillis");
-			tireReleaseDao.insert(record);
+//			record.setName("currentTimeMilliscurrentTimeMilliscurrentTimeMilliscurrentTimeMillis");
+//			tireReleaseDao.insert(record);
 			log.info(name + " 结束同步块内插入sqltime=" + System.currentTimeMillis());
 			log.info(name + " 退出锁time=" + System.currentTimeMillis());
 		}
