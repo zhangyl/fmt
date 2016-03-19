@@ -5,7 +5,7 @@
 <configuration>
  <!--  <properties resource="config.properties"></properties> -->
 	<settings>
-		<!-- 全局的映射器启用或禁用缓存。 -->
+		<!-- 禁用缓存(二级) -->
 		<setting name="cacheEnabled" value="false" />
 		<!-- 全局启用或禁用延迟加载 -->
 		<setting name="lazyLoadingEnabled" value="true" />
@@ -19,6 +19,7 @@
 		<setting name="defaultExecutorType" value="SIMPLE" />
 		<!-- 设置超时时间 -->
 		<!-- <setting name="defaultStatementTimeout" value="25000" /> -->
+		<!-- 默认SESSION 默认相当于事务内一级缓存生效 设置STATEMENT相当于一级缓存失效 -->
 		<setting name="localCacheScope" value="STATEMENT"/>
 	</settings>
 </configuration>

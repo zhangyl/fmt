@@ -55,7 +55,7 @@
 	
     <bean id="autopartsSqlSessionFactory"
           class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="configLocation" value="classpath:configuration.xml"></property> 
+        <property name="configLocation" value="classpath:configuration.xml"/> 
         <property name="dataSource" ref="autopartsDataSource"/>
         <property name="mapperLocations"
                   value="classpath:mybatis/autoparts/*.xml"/>
