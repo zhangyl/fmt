@@ -14,12 +14,6 @@
     <packaging>jar</packaging>
 
     <dependencies>
-    	<dependency>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>aspectj-maven-plugin</artifactId>
-                <version>1.8</version>    	
-    	</dependency>
-    
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
@@ -28,10 +22,10 @@
             <groupId>com.tqmall.wind</groupId>
             <artifactId>wind-dal</artifactId>
         </dependency>
-        <dependency>
+<!--         <dependency>
             <groupId>org.glassfish.jersey.ext</groupId>
             <artifactId>jersey-proxy-client</artifactId>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-jaxrs</artifactId>

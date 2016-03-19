@@ -58,14 +58,14 @@
         <property name="configLocation" value="classpath:configuration.xml"/> 
         <property name="dataSource" ref="autopartsDataSource"/>
         <property name="mapperLocations"
-                  value="classpath:mybatis/autoparts/*.xml"/>
+                  value="classpath:mybatis/*.xml"/>
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName"
                   value="autopartsSqlSessionFactory"/>
         <property name="basePackage"
-                  value="com.tqmall.wind.mapper.autoparts"/>
+                  value="com.tqmall.wind.mapper"/>
     </bean>
 
     <!-- transaction manager, use JtaTransactionManager for global tx -->

@@ -1,4 +1,4 @@
-package com.tqmall.wind.mapper.autoparts;
+package com.tqmall.wind.mapper;
 
 import java.util.List;
 

@@ -5,9 +5,8 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.tqmall.wind.mapper.autoparts.TireReleaseMapper;
+import com.tqmall.wind.mapper.TireReleaseMapper;
 import com.tqmall.wind.model.TireReleaseDO;
 
 @Repository
