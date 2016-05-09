@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd"
+        >
+
+    <!-- 发送消息配置-->
+    <bean id="connectionFactory"
+          class="com.rabbitmq.client.ConnectionFactory">
+        <property name="host" value="${shop.mq.host}"/>
+        <property name="port" value="${shop.mq.port}"/>
+        <property name="username" value="${shop.mq.name}"/>
+        <property name="password" value="${shop.mq.password}"/>
+        <property name="virtualHost" value="tqmall"/>
+    </bean>
+
+    <bean id="cachingConnectionFactory"
+          class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
+        <constructor-arg ref="connectionFactory"/>
+    </bean>
+
+    <bean id="rabbitTemplate"
+          class="org.springframework.amqp.rabbit.core.RabbitTemplate">
+        <constructor-arg ref="cachingConnectionFactory"/>
+    </bean>
+
+<!--     <bean id="baseMqSenderInfo" class="com.tqmall.venus.manager.mq.MqSenderInfo" abstract="true"/>
+
+
+    <bean id="tradeMqSenderInfo" parent="baseMqSenderInfo">
+        <property name="sanderName" value="trade"/>
+        <property name="exchange" value="${shop.mq.exchange}"/>
+        <property name="routingKey" value="${shop.trade.routingKey}"/>
+    </bean>
+
+    <bean id="mqSendFactory" class="com.tqmall.venus.manager.mq.MqSendFactory">
+        <property name="rabbitTemplate" ref="rabbitTemplate"/>
+        <property name="senderMap">
+            <map>
+                <entry key="trade" value-ref="tradeMqSenderInfo"/>
+            </map>
+        </property>
+    </bean> -->
+</beans>

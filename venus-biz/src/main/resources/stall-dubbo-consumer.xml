@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo 
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:reference
+    	interface="com.tqmall.tqmallstall.service.seller.SellerAddressService"
+        id="sellerAddressService" version="${dubbo.consumer.version}"/>
+    <dubbo:reference 
+   		interface="com.tqmall.tqmallstall.service.goods.GoodsService"
+    	id="goodsService" version="${dubbo.consumer.version}"/>
+    <dubbo:reference 
+    	interface="com.tqmall.tqmallstall.service.category.CategoryService"
+        id="categoryService" version="${dubbo.consumer.version}"/>
+    <dubbo:reference 
+    	interface="com.tqmall.tqmallstall.service.warehouse.WarehouseService"
+        id="warehouseService" version="${dubbo.consumer.version}" />
+    <dubbo:reference 
+    	interface="com.tqmall.tqmallstall.service.discount.DiscountRecordService"
+        id="discountRecordService" version="${dubbo.consumer.version}" />
+    <dubbo:reference 
+    	interface="com.tqmall.tqmallstall.service.PaymentService"
+        id="paymentService" version="${dubbo.consumer.version}"/>
+    <dubbo:reference 
+    	interface="com.tqmall.tqmallstall.service.ActivityRemoteService"
+        id="activityRemoteService" version="${dubbo.consumer.version}"/>
+	<dubbo:reference
+			interface="com.tqmall.tqmallstall.service.openplatform.RpcSellerService"
+			id="rpcSellerService" version="${dubbo.consumer.version}"/>
+    <dubbo:reference id="smsService" version="${dubbo.consumer.version}"
+                     interface="com.tqmall.tqmallstall.service.sms.AppSmsService" check="false" owner="rongyu.gao"/>
+
+</beans>

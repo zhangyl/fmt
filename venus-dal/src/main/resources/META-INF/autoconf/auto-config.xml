@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config description="">
+    <group name="jdbc">
+
+        <property name="jdbc.driver"
+                  defaultValue="com.mysql.jdbc.Driver"
+                  description="数据库驱动"/>
+        <property name="jdbc.url"
+                  defaultValue="jdbc:mysql://121.199.28.244:3306/venus?characterEncoding=UTF-8"
+                  description="数据库连接url"/>
+        <property name="jdbc.username"
+                  defaultValue="shop_rw"
+                  description="数据库连接用户名"/>
+        <property name="jdbc.password"
+                  defaultValue="tqmall2016"
+                  description="数据库连接用户名"/>
+    </group>
+
+    <script>
+        <generate template="jdbc.properties.vm" destfile="jdbc.properties" charset="UTF-8"/>
+    </script>
+</config>

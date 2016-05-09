@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		   http://www.springframework.org/schema/context
+		   http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		   http://code.alibabatech.com/schema/dubbo
+		   http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+		   
+    <!-- order越小越先加载，此项目最小从10开始，方便后面插队，此处是20 -->
+    <context:property-placeholder order="20" ignore-unresolvable="true"
+                                  location="classpath:venus-biz.properties"/>
+	<!-- dubbo 配置 -->
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="${dubbo.application.name}"/>
+
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <dubbo:registry protocol="zookeeper" address="${zookeeper.address}"/>
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol name="dubbo" port="${dubbo.port}"/>
+
+    <dubbo:consumer check="false"/> 
+    <!--从注册中心发现监控中心地址-->
+    <dubbo:monitor protocol="registry"/>
+                                  
+	<!-- 数据库层 -->
+    <import resource="classpath*:mybatis-config.xml"/>
+
+	<!-- 业务层 -->
+    <import resource="classpath*:service-quartz.xml"/>
+    <import resource="classpath*:service-tools.xml"/>
+    <import resource="classpath*:service-trade.xml"/>
+    <import resource="classpath*:service-mq-sender.xml"/>
+
+	<!-- 依赖外部dubbo服务 -->
+    <import resource="classpath*:stall-dubbo-consumer.xml"/>
+    <import resource="classpath*:ucenter-dubbo-consumer.xml"/>
+    <import resource="classpath*:finance-dubbo-consumer.xml"/>
+    <import resource="classpath*:crm-dubbo-consumer.xml"/>
+
+</beans>

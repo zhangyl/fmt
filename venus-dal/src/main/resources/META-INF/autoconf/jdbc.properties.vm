@@ -1,0 +1,6 @@
+#vm真实模板
+jdbc.driver=${jdbc_driver}
+jdbc.url=${jdbc_url}
+jdbc.username=${jdbc_username}
+jdbc.password=${jdbc_password}
+

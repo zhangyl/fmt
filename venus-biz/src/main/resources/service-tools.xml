@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.2.xsd"
+        >
+
+    <!-- redis连接池的配置-->
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxTotal" value="2048"/>
+        <property name="maxIdle" value="200"/>
+        <property name="numTestsPerEvictionRun" value="10"/>
+        <property name="timeBetweenEvictionRunsMillis" value="30000"/>
+        <property name="minEvictableIdleTimeMillis" value="-1"/>
+        <property name="softMinEvictableIdleTimeMillis" value="10000"/>
+        <property name="maxWaitMillis" value="1500"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnReturn" value="false"/>
+        <property name="jmxEnabled" value="true"/>
+        <property name="minIdle" value="10"/>
+    </bean>
+
+    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+        <constructor-arg index="0" ref="jedisPoolConfig"/>
+        <constructor-arg index="1" value="${redis.host}"/>
+        <constructor-arg index="2" value="${redis.port}" type="int"/>
+        <constructor-arg index="3" value="3000" type="int"/>
+        <constructor-arg index="4" value="${redis.auth}"/>
+    </bean>
+    <!-- <bean id="jedisClient" class="com.tqmall.venus.manager.redis.JedisClient"/> -->
+
+</beans>

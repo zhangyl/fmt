@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config description="">
+    <group name="default">
+    
+        <property name="log.root" defaultValue="/data/zeus/logs"
+                  description="log文件目录"/>
+        <property name="log.level" defaultValue="INFO"
+                  description="log级别"/>
+        <property name="log.pattern"
+                  defaultValue="[%d{'MM-dd HH:mm:ss,SSS',GMT+8:00}] %-5p [%.10t][%X{CU}] %logger{36}[%L] - %m%n"
+                  description="log格式"/>
+        <property name="log.charset" defaultValue="UTF-8"
+                  description="log文件编码类型"/>
+
+                  
+        <property name="debug" defaultValue="false"
+                  description="是否开启debug"/>
+    </group>
+
+    <script>
+        <generate template="application.properties.vm"
+                  destfile="WEB-INF/classes/application.properties"
+                  charset="UTF-8"/>
+        <generate template="logback.xml.vm"
+                  destfile="WEB-INF/classes/logback.xml"
+                  charset="UTF-8"/>
+    </script>
+</config>

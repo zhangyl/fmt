@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd 
+       		http://www.springframework.org/schema/aop 
+       		http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+    <!--拦截器统一处理异常-->
+    <bean id="controllerResultInteceptor" class="com.tqmall.zeus.controller.ControllerResultInteceptor"/>
+    <aop:config proxy-target-class="false">
+        <aop:pointcut id="resultControlWrapper"
+            expression="(@annotation(org.springframework.web.bind.annotation.ResponseBody) and execution(com.tqmall.core.common.entity.Result *.*(..))) or (@annotation(org.springframework.web.bind.annotation.ResponseBody) and execution(com.tqmall.core.common.entity.PagingResult *.*(..)))"/>
+        <aop:advisor advice-ref="controllerResultInteceptor" pointcut-ref="resultControlWrapper"/>
+    </aop:config>
+
+</beans>

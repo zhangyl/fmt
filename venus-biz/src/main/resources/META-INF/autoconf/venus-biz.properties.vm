@@ -1,0 +1,19 @@
+dubbo.application.name=zeus
+zookeeper.address=${zookeeper_address}
+dubbo.port=${dubbo_port}
+dubbo.service.version=${dubbo_service_version}
+dubbo.consumer.version=${dubbo_consumer_version}
+
+redis.host =${redis_host}
+redis.port = ${redis_port}
+redis.auth =${redis_auth}
+
+job.host = ${job_host}
+shop.mq.exchange  = ${shop_mq_exchange}
+shop.mq.host      = ${shop_mq_host}
+shop.mq.port  = ${shop_mq_port}
+shop.mq.name  = ${shop_mq_name}
+shop.mq.password  = ${shop_mq_password}
+shop.trade.routingKey = ${shop_trade_routingKey}
+tolerance.alert = ${tolerance_alert}
+

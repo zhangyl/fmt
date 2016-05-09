@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+           http://code.alibabatech.com/schema/dubbo
+           http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+
+    <!-- 依赖biz层 -->
+    <import resource="classpath*:biz-context.xml"/>
+
+    <!--拦截dubbo服务-->
+    <bean id="dubboServiceInterceptor" class="com.tqmall.zeus.service.DubboServiceInterceptor"/>
+
+    <aop:config proxy-target-class="false">
+        <aop:pointcut id="dubboServicePointcut" expression="execution(* com.tqmall.zeus.service..*.*(..))"/>
+        <aop:advisor advice-ref="dubboServiceInterceptor" pointcut-ref="dubboServicePointcut"/>
+    </aop:config>
+
+    <!--dubbo 服务默认超时时间-->
+    <dubbo:provider timeout="60000"/>
+
+    <!-- 声明需要暴露的服务接口 -->
+     <dubbo:service interface="com.tqmall.zeus.service.demo.DemoService"
+                   ref="demoService" version="${dubbo.service.version}"/>
+    <bean id="demoService" class="com.tqmall.zeus.service.demo.DemoServiceImpl"/>
+</beans>
