@@ -507,11 +507,11 @@
 	            <artifactId>aspectjtools</artifactId>
 	            <version>${aspectj-version}</version>
 	        </dependency>			
-            <dependency>
+<!--             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>1.16.8</version>
-            </dependency>
+            </dependency> -->
             <dependency>
                 <groupId>joda-time</groupId>
                 <artifactId>joda-time</artifactId>

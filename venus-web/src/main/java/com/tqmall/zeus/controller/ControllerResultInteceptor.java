@@ -3,18 +3,17 @@ package com.tqmall.zeus.controller;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
+import org.apache.log4j.Logger;
+import org.objenesis.ObjenesisStd;
 
 import com.tqmall.core.common.entity.BaseResult;
 import com.tqmall.core.common.exception.BusinessCheckFailException;
 import com.tqmall.core.common.exception.BusinessProcessFailException;
 
-
-import lombok.extern.slf4j.Slf4j;
-import org.objenesis.ObjenesisStd;
-
-@Slf4j
 public class ControllerResultInteceptor implements MethodInterceptor {
-
+	
+	private Logger log = Logger.getLogger(this.getClass());
+	
     private ObjenesisStd generator = new ObjenesisStd();
 
     @Override
@@ -53,7 +52,7 @@ public class ControllerResultInteceptor implements MethodInterceptor {
     }
 
     private void setSystemError(BaseResult result) {
-        log.error("系统异常:code={}, message={}", result.getCode(), result.getMessage());
+//        log.error("系统异常:code={}message={}", result.getCode(), result.getMessage());
         result.setSuccess(false);
         result.setCode("1111");
         result.setMessage("系统繁忙，请稍后重试");

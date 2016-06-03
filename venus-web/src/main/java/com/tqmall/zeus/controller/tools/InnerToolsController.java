@@ -5,8 +5,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.extern.slf4j.Slf4j;
-
+import org.apache.log4j.Logger;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,8 +25,8 @@ import com.tqmall.core.common.entity.Result;
  */
 @Controller
 @RequestMapping(value = "tools")
-@Slf4j
 public class InnerToolsController {
+	private Logger log = Logger.getLogger(this.getClass());
 	
     @RequestMapping(value = "dubbo/service/view",
             produces = MediaType.APPLICATION_JSON_VALUE,

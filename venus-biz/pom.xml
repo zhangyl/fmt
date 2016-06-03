@@ -14,36 +14,7 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>com.tqmall.zenith</groupId>
-            <artifactId>errorcode</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.tqmall.military</groupId>
-            <artifactId>saint.bundles</artifactId>
-            <version>1.4.3</version>
-        </dependency>
-        <dependency>
-            <groupId>com.tqmall.tqmallstall</groupId>
-            <artifactId>tqmallstall-client</artifactId>
-            <version>1.8.4</version>
-        </dependency>
-        <dependency>
-            <groupId>com.tqmall.finance</groupId>
-            <artifactId>finance-client</artifactId>
-            <version>1.1.0</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.tqmall.zenith</groupId>
-                    <artifactId>errorcode</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.tqmall.ucenter</groupId>
-            <artifactId>ucenter-client</artifactId>
-            <version>1.0.0</version>
-        </dependency>
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
@@ -153,10 +124,7 @@
             <artifactId>commons-dbutils</artifactId>
             <scope>test</scope>
         </dependency>
-<!--         <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
-        </dependency> -->
+
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
