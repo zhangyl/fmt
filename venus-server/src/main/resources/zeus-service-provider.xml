@@ -25,7 +25,6 @@
     <dubbo:provider timeout="60000"/>
 
     <!-- 声明需要暴露的服务接口 -->
-     <dubbo:service interface="com.tqmall.zeus.service.demo.DemoService"
-                   ref="demoService" version="${dubbo.service.version}"/>
+    <dubbo:service interface="com.tqmall.zeus.service.demo.DemoService" ref="demoService" version="${dubbo.service.version}"/>
     <bean id="demoService" class="com.tqmall.zeus.service.demo.DemoServiceImpl"/>
 </beans>

@@ -16,6 +16,10 @@
         <dependency>
             <groupId>com.tqmall.core</groupId>
             <artifactId>tqmall-core-common</artifactId>
+        </dependency>		
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
         <dependency>
             <groupId>org.objenesis</groupId>

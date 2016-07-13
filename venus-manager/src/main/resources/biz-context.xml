@@ -12,7 +12,7 @@
 		   
     <!-- order越小越先加载，此项目最小从10开始，方便后面插队，此处是20 -->
     <context:property-placeholder order="20" ignore-unresolvable="true"
-                                  location="classpath:venus-biz.properties"/>
+                                  location="classpath:manager.properties"/>
 	<!-- dubbo 配置 -->
     <!-- 提供方应用信息，用于计算依赖关系 -->
     <dubbo:application name="${dubbo.application.name}"/>
@@ -27,7 +27,7 @@
     <dubbo:monitor protocol="registry"/>
                                   
 	<!-- 数据库层 -->
-    <import resource="classpath*:mybatis-config.xml"/>
+    <import resource="classpath*:dal-context.xml"/>
 
 	<!-- 业务层 -->
     <import resource="classpath*:service-quartz.xml"/>
@@ -37,8 +37,5 @@
 
 	<!-- 依赖外部dubbo服务 -->
     <import resource="classpath*:stall-dubbo-consumer.xml"/>
-    <import resource="classpath*:ucenter-dubbo-consumer.xml"/>
-    <import resource="classpath*:finance-dubbo-consumer.xml"/>
-    <import resource="classpath*:crm-dubbo-consumer.xml"/>
 
 </beans>

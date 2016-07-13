@@ -12,8 +12,17 @@
 		   http://code.alibabatech.com/schema/dubbo/dubbo.xsd
 		   http://www.springframework.org/schema/util 
 		   http://www.springframework.org/schema/util/spring-util-4.2.xsd">
-	
-    <!-- parent context 被 org.springframework.web.context.ContextLoaderListener 加载-->
-    <import resource="classpath*:zeus-service-provider.xml"/>
+	<!-- 本文件是DispatcherServlet加载的child context -->
+    <!-- order越小越先加载，此项目最小从10开始，方便后面插队，此处是40 -->
+    <context:property-placeholder order="40" ignore-unresolvable="true" location="classpath:application.properties"/>
+    
+	<context:component-scan base-package="com.tqmall.zeus"/>
+<!--     <context:component-scan base-package="com.tqmall.zeus" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan> -->	
+	<!-- 引入web层配置文件 -->
+    <import resource="web-aop.xml"/>
+    <import resource="web-mvc.xml"/>
 
 </beans>
+	

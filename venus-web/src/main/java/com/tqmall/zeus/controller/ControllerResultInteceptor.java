@@ -1,69 +1,79 @@
 package com.tqmall.zeus.controller;
 
 
+import java.lang.reflect.Method;
+
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
-import org.apache.log4j.Logger;
-import org.objenesis.ObjenesisStd;
 
-import com.tqmall.core.common.entity.BaseResult;
+import com.alibaba.fastjson.JSONArray;
+import com.tqmall.core.common.entity.PagingResult;
+import com.tqmall.core.common.entity.Result;
 import com.tqmall.core.common.exception.BusinessCheckFailException;
 import com.tqmall.core.common.exception.BusinessProcessFailException;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class ControllerResultInteceptor implements MethodInterceptor {
-	
-	private Logger log = Logger.getLogger(this.getClass());
-	
-    private ObjenesisStd generator = new ObjenesisStd();
 
     @Override
-    public BaseResult invoke(final MethodInvocation invocation) throws Throwable {
-        BaseResult result = null;
+    public Object invoke(final MethodInvocation invocation) throws Throwable {
         try {
-            result = (BaseResult) invocation.proceed();
+            return invocation.proceed();
+        } catch (BusinessCheckFailException e) {
+            log.error("BusinessCheckFailException", e);
+            Object result = exceptionProcessor(invocation, e);
             return result;
         } catch (BusinessProcessFailException e) {
-            result = getBaseResult(invocation);
-
-            result.setSuccess(false);
-            result.setMessage(e.getMessage());
-            result.setCode(e.getErrorCode());
-            handleBusinessException(e);
-        } catch (BusinessCheckFailException e) {
-            result = getBaseResult(invocation);
-
-            result.setSuccess(false);
-            result.setMessage(e.getMessage());
-            result.setCode(e.getErrorCode());
-            handleBusinessException(e);
-        } catch (Exception e) {
-            result = getBaseResult(invocation);
-
-            setSystemError(result);
-            handleThrowable(e);
+        	log.error("BusinessProcessFailException", e);
+            Object result = exceptionProcessor(invocation, e);
+        	return result;
+        } catch (Throwable e) {
+            log.error("Exception:", e);
+            Object r = exceptionProcessor(invocation, e);
+            return r;
         }
-        return result;
     }
 
-    private BaseResult getBaseResult(MethodInvocation methodInvocation) {
-        Class<?> returnType = methodInvocation.getMethod().getReturnType();
-        BaseResult result = (BaseResult) generator.newInstance(returnType);
-        return result;
-    }
+    @SuppressWarnings("rawtypes")
+	private Object exceptionProcessor(MethodInvocation invocation, Throwable e) {
+        Object[] args = invocation.getArguments();
+        Method method = invocation.getMethod();
+        String methodName = method.getDeclaringClass().getName() + "." + method.getName();
+        log.error("dubbo服务[method=" + methodName + "] params=" + JSONArray.toJSONString(args) + "异常：", e);
 
-    private void setSystemError(BaseResult result) {
-//        log.error("系统异常:code={}message={}", result.getCode(), result.getMessage());
-        result.setSuccess(false);
-        result.setCode("1111");
-        result.setMessage("系统繁忙，请稍后重试");
-    }
-
-    private void handleThrowable(Throwable e) {
-        log.error("系统出错:", e);
-    }
-
-    private void handleBusinessException(RuntimeException e) {
-        log.error("业务出错:", e);
+        Class<?> clazz = method.getReturnType();
+        if (clazz.equals(Result.class)) {
+        	Result result = new Result();
+            result.setSuccess(false);
+            result.setMessage(e.getMessage());
+            if(e instanceof BusinessCheckFailException) {
+            	result.setCode(((BusinessCheckFailException)e).getErrorCode());
+            }
+            else if(e instanceof BusinessProcessFailException) {
+            	result.setCode(((BusinessProcessFailException)e).getErrorCode());
+            } else {
+            	result.setMessage("系统内部错误");
+            }
+            return result;
+        } else if (clazz.equals(PagingResult.class)) {
+        	PagingResult result = new PagingResult();
+            result.setSuccess(false);
+            result.setMessage(e.getMessage());
+            if(e instanceof BusinessCheckFailException) {
+            	result.setCode(((BusinessCheckFailException)e).getErrorCode());
+            }
+            else if(e instanceof BusinessProcessFailException) {
+            	result.setCode(((BusinessProcessFailException)e).getErrorCode());
+            } else {
+                result.setCode("1111");
+                result.setMessage("系统繁忙，请稍后重试");
+            }
+            return result;
+        }
+        log.error("dubbo拦截器发现服务签名错误method={}, returnType=", methodName, clazz);
+        return null;
     }
 
 }

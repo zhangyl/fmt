@@ -16,9 +16,6 @@
 			http://www.springframework.org/schema/aop
 			http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
 
-    <!-- order越小越先加载，此项目最小从10开始，方便后面插队 -->
-    <context:property-placeholder order="10" ignore-unresolvable="true" location="classpath*:jdbc.properties"/>
-
     <!-- 数据源 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="${jdbc.driver}"/>
@@ -59,9 +56,9 @@
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-        <property name="basePackage" value="com.tqmall.venus.mapper"/>
+        <property name="basePackage" value="com.tqmall.zeus.mapper"/>
     </bean>
-
+    
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
         <qualifier value="sunDataSource"/>

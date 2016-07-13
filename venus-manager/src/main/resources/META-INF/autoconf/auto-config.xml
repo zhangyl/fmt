@@ -51,6 +51,6 @@
     </group>
 
     <script>
-        <generate template="venus-biz.properties.vm" destfile="venus-biz.properties" charset="UTF-8"/>
+        <generate template="manager.properties.vm" destfile="manager.properties" charset="UTF-8"/>
     </script>
 </config>

@@ -14,7 +14,7 @@
     配置一些messageconverter。即解决了@Controller注解的使用前提配置。-->
     <mvc:annotation-driven ignore-default-model-on-redirect="true">
         <mvc:message-converters register-defaults="true">
-            <!-- 将StringHttpMessageCOnverter的默认编码设为UTF-8 -->
+            <!-- 将StringHttpMessageConverter的默认编码设为UTF-8 -->
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">
                 <constructor-arg value="UTF-8"/>
             </bean>

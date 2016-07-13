@@ -57,10 +57,6 @@
     <dependencies>
         <dependency>
             <groupId>com.tqmall.venus</groupId>
-            <artifactId>venus-biz</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.tqmall.venus</groupId>
             <artifactId>venus-server</artifactId>
         </dependency>
         <dependency>

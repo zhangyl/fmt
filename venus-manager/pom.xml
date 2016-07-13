@@ -10,11 +10,26 @@
         <relativePath>..</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>venus-biz</artifactId>
+    <artifactId>venus-manager</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
 
+        <dependency>
+            <groupId>com.tqmall.finance</groupId>
+            <artifactId>finance-client</artifactId>
+            <version>1.2.4</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.tqmall.zenith</groupId>
+                    <artifactId>errorcode</artifactId>
+                </exclusion>            
+            	<exclusion>
+		            <groupId>com.tqmall.core</groupId>
+		            <artifactId>tqmall-core-common</artifactId>
+            	</exclusion>
+            </exclusions>
+        </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
@@ -118,13 +133,6 @@
             <groupId>jaxen</groupId>
             <artifactId>jaxen</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>commons-dbutils</groupId>
-            <artifactId>commons-dbutils</artifactId>
-            <scope>test</scope>
-        </dependency>
-
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>

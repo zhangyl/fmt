@@ -21,7 +21,7 @@
         </dependency>
         <dependency>
             <groupId>com.tqmall.venus</groupId>
-            <artifactId>venus-biz</artifactId>
+            <artifactId>venus-manager</artifactId>
         </dependency>
         <dependency>
             <groupId>com.101tec</groupId>
