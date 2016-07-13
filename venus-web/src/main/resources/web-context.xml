@@ -15,8 +15,8 @@
 	<!-- 本文件是DispatcherServlet加载的child context -->
     <!-- order越小越先加载，此项目最小从10开始，方便后面插队，此处是40 -->
     <context:property-placeholder order="40" ignore-unresolvable="true" location="classpath:application.properties"/>
-    
-	<context:component-scan base-package="com.tqmall.zeus"/>
+    <!-- 注意只加载controller层下的 -->
+	<context:component-scan base-package="com.tqmall.zeus.controller"/>
 <!--     <context:component-scan base-package="com.tqmall.zeus" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan> -->	

@@ -19,9 +19,9 @@
                 <constructor-arg value="UTF-8"/>
             </bean>
         </mvc:message-converters>
-        <mvc:argument-resolvers>
+<!--         <mvc:argument-resolvers>
             <bean class="org.springframework.data.web.PageableHandlerMethodArgumentResolver"/>
-        </mvc:argument-resolvers>
+        </mvc:argument-resolvers> -->
     </mvc:annotation-driven>
 	<!-- Handles HTTP GET requests for /resources/** 
 	by efficiently serving up static resources in the ${webappRoot}/resources directory 
