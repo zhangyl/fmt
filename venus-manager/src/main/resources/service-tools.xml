@@ -5,7 +5,7 @@
        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd"
         >
 
-    <!-- redis连接池的配置-->
+    <!-- redis连接池的配置
     <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
         <property name="maxTotal" value="2048"/>
         <property name="maxIdle" value="200"/>
@@ -28,6 +28,7 @@
         <constructor-arg index="3" value="3000" type="int"/>
         <constructor-arg index="4" value="${redis.auth}"/>
     </bean>
+    -->
     <!-- <bean id="jedisClient" class="com.tqmall.venus.manager.redis.JedisClient"/> -->
 
 </beans>

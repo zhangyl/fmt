@@ -21,10 +21,12 @@
         <aop:advisor advice-ref="dubboServiceInterceptor" pointcut-ref="dubboServicePointcut"/>
     </aop:config>
 
-    <!--dubbo 服务默认超时时间-->
+    <!--dubbo 服务默认超时时间
     <dubbo:provider timeout="60000"/>
-
-    <!-- 声明需要暴露的服务接口 -->
+	-->
+    <!-- 声明需要暴露的服务接口 
     <dubbo:service interface="com.tqmall.zeus.service.demo.DemoService" ref="demoService" version="${dubbo.service.version}"/>
+    -->
     <bean id="demoService" class="com.tqmall.zeus.service.demo.DemoServiceImpl"/>
+   
 </beans>

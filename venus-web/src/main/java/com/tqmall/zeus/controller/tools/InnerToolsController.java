@@ -20,14 +20,11 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.tqmall.zeus.service.Result;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 内部工具接口,测试用
  */
 @Controller
 @RequestMapping(value = "tools")
-@Slf4j
 public class InnerToolsController {
     private static final Logger log = LoggerFactory.getLogger(InnerToolsController.class);
 

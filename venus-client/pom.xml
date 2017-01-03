@@ -11,13 +11,6 @@
     <version>1.0.6</version>
 
     <dependencies>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.12.6</version>
-        </dependency>
-
     </dependencies>
     <build>
         <plugins>

@@ -5,7 +5,7 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd"
         >
 
-    <!-- 发送消息配置-->
+    <!-- 
     <bean id="connectionFactory"
           class="com.rabbitmq.client.ConnectionFactory">
         <property name="host" value="${shop.mq.host}"/>
@@ -24,7 +24,7 @@
           class="org.springframework.amqp.rabbit.core.RabbitTemplate">
         <constructor-arg ref="cachingConnectionFactory"/>
     </bean>
-
+-->
 <!--     <bean id="baseMqSenderInfo" class="com.tqmall.venus.manager.mq.MqSenderInfo" abstract="true"/>
 
 

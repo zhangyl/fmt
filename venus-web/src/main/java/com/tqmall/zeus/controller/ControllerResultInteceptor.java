@@ -10,9 +10,6 @@ import org.slf4j.LoggerFactory;
 import com.alibaba.fastjson.JSONArray;
 import com.tqmall.zeus.service.Result;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 public class ControllerResultInteceptor implements MethodInterceptor {
     private static final Logger log = LoggerFactory.getLogger(ControllerResultInteceptor.class);
 
