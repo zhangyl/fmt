@@ -10,7 +10,7 @@
     <bean id="controllerResultInteceptor" class="com.tqmall.zeus.controller.ControllerResultInteceptor"/>
     <aop:config proxy-target-class="false">
         <aop:pointcut id="resultControlWrapper"
-            expression="(@annotation(org.springframework.web.bind.annotation.ResponseBody) and execution(com.tqmall.core.common.entity.Result *.*(..))) or (@annotation(org.springframework.web.bind.annotation.ResponseBody) and execution(com.tqmall.core.common.entity.PagingResult *.*(..)))"/>
+            expression="@annotation(org.springframework.web.bind.annotation.ResponseBody) and execution(com.tqmall.zeus.service.Result *.*(..))"/>
         <aop:advisor advice-ref="controllerResultInteceptor" pointcut-ref="resultControlWrapper"/>
     </aop:config>
 
