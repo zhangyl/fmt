@@ -14,22 +14,6 @@
     <packaging>jar</packaging>
 
     <dependencies>
-
-        <dependency>
-            <groupId>com.tqmall.finance</groupId>
-            <artifactId>finance-client</artifactId>
-            <version>1.2.4</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.tqmall.zenith</groupId>
-                    <artifactId>errorcode</artifactId>
-                </exclusion>            
-            	<exclusion>
-		            <groupId>com.tqmall.core</groupId>
-		            <artifactId>tqmall-core-common</artifactId>
-            	</exclusion>
-            </exclusions>
-        </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>

@@ -1,6 +1,6 @@
 package com.tqmall.zeus.service.demo;
 
-import com.tqmall.core.common.entity.Result;
+import com.tqmall.zeus.service.Result;
 
 public interface DemoService {
     /**

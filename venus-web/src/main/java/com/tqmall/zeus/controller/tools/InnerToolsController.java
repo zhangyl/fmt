@@ -5,8 +5,8 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.extern.slf4j.Slf4j;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,8 +18,9 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.tqmall.core.common.entity.Result;
+import com.tqmall.zeus.service.Result;
 
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 内部工具接口,测试用
@@ -28,10 +29,9 @@ import com.tqmall.core.common.entity.Result;
 @RequestMapping(value = "tools")
 @Slf4j
 public class InnerToolsController {
-	
-    @RequestMapping(value = "dubbo/service/view",
-            produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+    private static final Logger log = LoggerFactory.getLogger(InnerToolsController.class);
+
+    @RequestMapping(value = "dubbo/service/view", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
     @ResponseBody
     public Object viewDubboServiceMethod(@RequestBody String service) {
         try {
@@ -59,7 +59,8 @@ public class InnerToolsController {
                                 // 不存在无参数构造函数，只是不给出参数demo
                             }
                             if (paramTypeInstance != null) {
-                                String json = JSON.toJSONString(paramTypeInstance, SerializerFeature.WriteMapNullValue);
+                                String json = JSON.toJSONString(paramTypeInstance,
+                                    SerializerFeature.WriteMapNullValue);
                                 p.setParamDemo(json);
                             }
                         }
@@ -71,13 +72,11 @@ public class InnerToolsController {
 
         } catch (Exception e) {
             log.error("调用dubbo服务[" + service + "]异常：", e);
-            return Result.wrapErrorResult(null, e.getMessage());
+            return new Result();
         }
     }
 
-    @RequestMapping(value = "dubbo/service",
-            produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+    @RequestMapping(value = "dubbo/service", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
     @ResponseBody
     public Object invokeDubboService(@RequestBody DubboParam param) {
         WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();
@@ -114,7 +113,7 @@ public class InnerToolsController {
 
         } catch (Exception e) {
             log.error("调用dubbo服务[" + service + "]异常：", e);
-            return Result.wrapErrorResult(null, e.getMessage());
+            return new Result();
         }
     }
 }

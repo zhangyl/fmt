@@ -11,12 +11,7 @@
     <version>1.0.6</version>
 
     <dependencies>
-        <dependency>
-            <groupId>com.tqmall.core</groupId>
-            <artifactId>tqmall-core-common</artifactId>
-            <version>1.0.4-SNAPSHOT</version>
-            <optional>true</optional>
-        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

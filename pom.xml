@@ -75,7 +75,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- aspectj plugin -->
+            <!-- aspectj plugin 
 			<plugin>
 				<groupId>com.jcabi</groupId>
 				<artifactId>jcabi-maven-plugin</artifactId>
@@ -87,7 +87,8 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>            
+			</plugin>  
+-->			
 			<!-- 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -495,6 +496,7 @@
                 <artifactId>fastjson</artifactId>
                 <version>1.2.5</version>
             </dependency>
+			<!--
             <dependency>
                 <groupId>org.aspectj</groupId>
                 <artifactId>aspectjweaver</artifactId>
@@ -509,7 +511,8 @@
 	            <groupId>org.aspectj</groupId>
 	            <artifactId>aspectjtools</artifactId>
 	            <version>${aspectj-version}</version>
-	        </dependency>			
+	        </dependency>	
+-->			
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
