@@ -24,7 +24,6 @@
     <import resource="web-aop.xml"/>
     <import resource="web-mvc.xml"/>
     
-    <import resource="classpath*:zeus-service-provider.xml"/>
 
 </beans>
 	

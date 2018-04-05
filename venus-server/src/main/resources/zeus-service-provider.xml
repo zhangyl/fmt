@@ -28,5 +28,8 @@
     <dubbo:service interface="com.tqmall.zeus.service.demo.DemoService" ref="demoService" version="${dubbo.service.version}"/>
     -->
     <bean id="demoService" class="com.tqmall.zeus.service.demo.DemoServiceImpl"/>
+    
+    <bean id="afterBeanInit" class="com.tqmall.zeus.service.init.AfterBeanInit"/>
+    
    
 </beans>
