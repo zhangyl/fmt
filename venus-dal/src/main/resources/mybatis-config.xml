@@ -65,7 +65,7 @@
     </bean>
     
     <!-- 全注解方式 需加上@Transactional -->
-	<tx:annotation-driven mode="aspectj" transaction-manager="transactionManager"/>
+	<tx:annotation-driven mode="proxy" transaction-manager="transactionManager"/>
 
 	<aop:aspectj-autoproxy/>
 

@@ -18,7 +18,7 @@ public class DemoMapperTest {
 	
 	@Test
 	public void getShopShareList() {
-		
+		System.out.println("OK");
 	}
 	
 }

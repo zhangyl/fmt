@@ -1,8 +1,20 @@
 package test;
 
-public class ZeusServer {
+import java.util.ArrayList;
+import java.util.List;
 
+public class ZeusServer {
+	public static Long i = 0L;
     public static void main(String[] args) {
+    	List<String> list = new ArrayList<>();
+    	for(;;) {
+    		String s = (++i).toString();
+    		list.add(s);
+    		if(i % 1000000L == 0) {
+    			list = new ArrayList<>();
+    		}
+    	}
+    	
         //        Server server = new Server(8070);
         //
         //        WebAppContext context = new WebAppContext();
