@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.4.RELEASE</version>
+        <relativePath/><!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>com.example</groupId>
+    <artifactId>spring-boot-multi-module</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>SpringBootMultiModule</name>
+    <description>Demo project for Jib with Spring Boot</description>
+
+    <modules>
+        <module>spring-boot-multi-module-launcher</module>
+        <module>spring-boot-multi-module-api</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <jib-maven-plugin.version>1.0.2</jib-maven-plugin.version>
+        <jib.skip>true</jib.skip>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.example</groupId>
+                <artifactId>spring-boot-multi-module-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.google.cloud.tools</groupId>
+                    <artifactId>jib-maven-plugin</artifactId>
+                    <version>${jib-maven-plugin.version}</version>
+                    <configuration>
+                    	<container>
+                    		<mainClass>com.example.jib.JibApplication</mainClass>
+                    		<useCurrentTimestamp>true</useCurrentTimestamp>
+                    	</container>
+                        <from>
+                            <image>openjdk:8-jre-alpine</image>
+                            <!--
+                            <auth>
+                            	<username>123</username>
+                            	<password>123</password>
+                            </auth>
+                            -->
+                        </from>
+                        <to>
+                            <image>spring-boot-multi-module:latest</image>
+                            <!--
+                            <auth>
+                            	<username>123</username>
+                            	<password>123</password>
+                            </auth> 
+                            -->                           
+                        </to>
+                        <skip>${jib.skip}</skip>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>build</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
