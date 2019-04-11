@@ -69,34 +69,12 @@
                     	</container>
                         <from>
                             <image>openjdk:8-jre-alpine</image>
-                            <!--
-                            <auth>
-                            	<username>123</username>
-                            	<password>123</password>
-                            </auth>
-                            -->
                         </from>
                         <to>
-                            <image>spring-boot-multi-module:latest</image>
-                            <!--
-                            <auth>
-                            	<username>123</username>
-                            	<password>123</password>
-                            </auth> 
-                            -->                           
+                            <image>spring-boot-multi-module:latest</image>                          
                         </to>
                         <skip>${jib.skip}</skip>
                     </configuration>
-                    <!--  
-                    <executions>
-                        <execution>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>build</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    -->
                 </plugin>
             </plugins>
         </pluginManagement>
