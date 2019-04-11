@@ -14,5 +14,7 @@
 
     <name>SpringBootMultiModuleApi</name>
     <description>Demo project for Jib with Spring Boot</description>
-
+	<dependencies>
+	
+	</dependencies>
 </project>

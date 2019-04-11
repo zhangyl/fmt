@@ -1,9 +1,4 @@
-log.txt
-walker.py
-venus.web/logs
-local-values.conf
 target
-*~
 bin
 *.idea
 *.ipr
@@ -13,16 +8,7 @@ bin
 .settings
 .classpath
 target/
-.springBeans
 .DS_Store
 */test-output/**
 */target/**
 *.log
-antx.properties
-rebel.xml
-gen
-scp-to-test.sh
-src/**
-**/rebel-remote.xml
-**/rebel-remote.xml
-

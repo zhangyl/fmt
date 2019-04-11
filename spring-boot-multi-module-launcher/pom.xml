@@ -16,6 +16,7 @@
     <description>Demo project for Jib with Spring Boot</description>
 
     <properties>
+    	<!-- 此处必须是false -->
         <jib.skip>false</jib.skip>
     </properties>
 
@@ -23,15 +24,13 @@
         <!-- Project Dependency -->
         <dependency>
             <groupId>com.example</groupId>
+            <artifactId>spring-boot-multi-module-api-external</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.example</groupId>
             <artifactId>spring-boot-multi-module-api</artifactId>
         </dependency>
 
-        <!-- Third party dependencies -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>
