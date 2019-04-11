@@ -15,6 +15,9 @@
     <name>SpringBootMultiModuleApi</name>
     <description>Demo project for Jib with Spring Boot</description>
 	<dependencies>
-	
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency> 	
 	</dependencies>
 </project>

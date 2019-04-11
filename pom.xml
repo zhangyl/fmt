@@ -32,10 +32,7 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency> 
+
     </dependencies>
 
     <dependencyManagement>
@@ -90,6 +87,7 @@
                         </to>
                         <skip>${jib.skip}</skip>
                     </configuration>
+                    <!--  
                     <executions>
                         <execution>
                             <phase>package</phase>
@@ -98,6 +96,7 @@
                             </goals>
                         </execution>
                     </executions>
+                    -->
                 </plugin>
             </plugins>
         </pluginManagement>
