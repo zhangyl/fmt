@@ -12,8 +12,6 @@
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jib-maven-plugin.version>1.0.2</jib-maven-plugin.version>
-        <jib.skip>true</jib.skip>
     </properties>	
     <build>
 	    <plugins>
@@ -47,12 +45,12 @@
                 <plugin>
                     <groupId>com.google.cloud.tools</groupId>
                     <artifactId>jib-maven-plugin</artifactId>
-                    <version>${jib-maven-plugin.version}</version>
+                    <version>1.0.2</version>
                     <configuration>
                     	<container>
                     		<useCurrentTimestamp>true</useCurrentTimestamp>
                     	</container>
-                        <skip>${jib.skip}</skip>
+                        <skip>true</skip>
                     </configuration>
                 </plugin>
             </plugins>

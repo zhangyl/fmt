@@ -26,8 +26,6 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <jib-maven-plugin.version>1.0.2</jib-maven-plugin.version>
-        <jib.skip>true</jib.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -61,11 +59,15 @@
                 <plugin>
                     <groupId>com.google.cloud.tools</groupId>
                     <artifactId>jib-maven-plugin</artifactId>
-                    <version>${jib-maven-plugin.version}</version>
+                    <version>1.0.2</version>
                     <configuration>
                     	<container>
                     		<mainClass>com.example.jib.JibApplication</mainClass>
                     		<useCurrentTimestamp>true</useCurrentTimestamp>
+                    		<jvmFlags>
+                    			<jvmFlag>-Xms512m</jvmFlag>
+                    			<jvmFlag>-Xmx512m</jvmFlag>
+                    		</jvmFlags>
                     	</container>
                         <from>
                             <image>openjdk:8-jre-alpine</image>
@@ -73,7 +75,8 @@
                         <to>
                             <image>spring-boot-multi-module:latest</image>                          
                         </to>
-                        <skip>${jib.skip}</skip>
+                        <!-- important 多工程打包默认跳过 -->
+                        <skip>true</skip>
                     </configuration>
                 </plugin>
             </plugins>
