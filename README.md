@@ -1,6 +1,6 @@
-1: mvn jib:dockerBuild <br/>
-2: docker run --name spring-boot-multi-module --rm -p 8080:8080 spring-boot-multi-module <br/>
-3: open browser and then visit the following url:<br/>
+1: 本地打包镜像 mvn jib:dockerBuild <br/>
+2: 本地启动 docker run --name spring-boot-multi-module --rm -p 8080:8080 spring-boot-multi-module <br/>
+3: 测试 open browser and then visit the following url:<br/>
 	http://localhost:8080/ <br/>
 	http://localhost:8080/classpath <br/>
 	http://localhost:8080/api-component <br/>
